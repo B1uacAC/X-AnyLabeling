@@ -4278,11 +4278,10 @@ class LabelingWidget(LabelDialog):
 
         label_file = self.get_label_file()
         if osp.exists(label_file):
-            os.remove(label_file)
-            logger.info("Label file is removed: %s", label_file)
-
             item = self.file_list_widget.currentItem()
             item.setCheckState(Qt.Unchecked)
+            os.remove(label_file)
+            logger.info("Label file is removed: %s", label_file)
 
             filename = self.filename
             self.reset_state()
